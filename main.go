@@ -15,7 +15,7 @@ func main() {
 		})
 	})
 
-	r.GET("/private", middleware.CheckJWT(), middleware.JwtAuthz([]string{"create:books"}, middleware.DefaultOptions()), func(c *gin.Context) {
+	r.GET("/private", middleware.CheckJWT(), middleware.JwtAuthz([]string{"create:books", "update:books", "delete:books"}, middleware.DefaultOptions()), func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"message": "From Private",
 		})
